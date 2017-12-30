@@ -1,11 +1,12 @@
 #include "Deck.h"
 
+using namespace::std;
 
 Deck::Deck()
 {
-	cards = std::vector<Card>();
+	cards = vector<Card>();
 	
-	for (int suite = (int)SuitType::Heart; suite <= (int)SuitType::Clover; suite++) {
+	for (int suite = (int)SuitType::Hearts; suite <= (int)SuitType::Clubs; suite++) {
 		for (int rank = (int)RankType::Two; rank <= (int)RankType::Ace; rank++)
 		{
 			Card card = Card(SuitType(suite), RankType(rank));
@@ -16,7 +17,21 @@ Deck::Deck()
 
 }
 
-Deck::Deck(std::vector<Card> cards)
+Deck::Deck(DeckType deckType) {
+	switch (deckType)
+	{
+	case DECK_32:
+		break;
+	case DECK_36:
+		break;
+	case DECK_52:
+		break;
+	default:
+		break;
+	}
+}
+
+Deck::Deck(vector<Card> cards)
 {
 	this->cards = cards;
 }
