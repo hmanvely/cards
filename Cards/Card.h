@@ -3,27 +3,27 @@
 
 #include <string>
 
-enum class SuitType {None, Clubs,  Diamonds, Hearts, Spades};
-enum class RankType {Ace, Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten, Jack, Queen, King,  Joker};
-
-std::string RankToString(const RankType);
-std::string SuitToString(const SuitType);
+#include "Suit.h"
+#include "Rank.h"
 
 class Card
 {
 public:
-	Card(SuitType suit, RankType rank);
+	Card(Suit suit, Rank rank);
 
 	bool operator==(const Card& other) const;
+	bool operator!=(const Card& other) const { return !(*this == other); };
+	virtual bool operator>(const Card& other) const { return (this->getRank() > other.getRank()); };
+	bool operator<(const Card& other) const { return !((*this > other) && (*this == other)); };
+
 	friend std::ostream& operator<<(std::ostream& stream, const Card& card);
 
-	SuitType Suit() const { return suit; }
-	RankType Rank() const { return rank; }
+	Suit getSuit() const { return suit; }
+	Rank getRank() const { return rank; }
 
 private:
-	SuitType suit;
-	RankType rank;
+	Suit suit;
+	Rank rank;
 };
 
 #endif /* CARD_H */
-

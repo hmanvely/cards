@@ -21,8 +21,12 @@ public:
 
 	void shuffle();
 
+	friend std::ostream& operator<< (std::ostream& os, const Deck& suit);
+
 private:
 	std::vector<Card> cards;
 };
+
+
 
 #endif /* DECK_H */

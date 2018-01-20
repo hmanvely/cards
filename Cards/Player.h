@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include <vector>
 #include <string>
 
@@ -26,3 +28,4 @@ public:
 
 extern "C" __declspec(dllexport) Player* createPlayer(std::string, int);
 
+#endif /* PLAYER_H */

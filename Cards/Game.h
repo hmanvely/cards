@@ -1,4 +1,6 @@
-#pragma once
+#ifndef GAME_H
+#define GAME_H
+
 #include <vector>
 #include "Player.h"
 
@@ -17,3 +19,4 @@ private:
 	void turn();
 };
 
+#endif /* GAME_H */
